@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Exclude certain file types from being rewritten
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !\.(jpg|jpeg|png|gif|css|js)$ [NC]
+RewriteRule ^(.*)$ clean.php?url=$1 [L,QSA]
